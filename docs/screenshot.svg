@@ -1,0 +1,44 @@
+<svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b9bd5"/>
+      <stop offset="100%" stop-color="#87ceeb"/>
+    </linearGradient>
+  </defs>
+  <rect width="680" height="380" rx="8" fill="url(#sky)"/>
+  <rect y="260" width="680" height="120" fill="#5a8f3c"/>
+  <rect y="260" width="680" height="4" fill="#4a7a30"/>
+  <rect y="372" width="680" height="8" rx="0" fill="#3d3d3d"/>
+
+  <rect x="100" y="120" width="60" height="140" fill="#8B6914" opacity="0.55"/>
+  <rect x="100" y="80" width="60" height="50" fill="#2d7d2d" opacity="0.55"/>
+  <rect x="500" y="100" width="50" height="160" fill="#8B6914" opacity="0.45"/>
+  <rect x="490" y="60" width="70" height="55" fill="#2d7d2d" opacity="0.45"/>
+  <rect x="300" y="200" width="40" height="60" fill="#8B6914" opacity="0.35"/>
+  <rect x="290" y="170" width="60" height="40" fill="#2d7d2d" opacity="0.35"/>
+
+  <g>
+    <rect x="40" y="10" width="600" height="20" rx="3" fill="rgba(0,0,0,0.4)"/>
+    <rect x="40" y="10" width="390" height="20" rx="3" fill="#44bb44" opacity="0.85"/>
+    <text x="340" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">BossBar - Game Timer</text>
+  </g>
+
+  <text x="340" y="225" text-anchor="middle" font-family="sans-serif" font-size="34" font-weight="bold" fill="#55ff55" style="text-shadow:2px 2px 0 rgba(0,0,0,0.6)">タイマー 15秒</text>
+  <text x="340" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">(subtitle position)</text>
+
+  <g opacity="0.65">
+    <rect x="140" y="335" width="400" height="30" rx="2" fill="rgba(80,80,80,0.55)"/>
+    <rect x="142" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="174" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="206" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="238" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="270" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="302" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="334" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="366" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+    <rect x="398" y="337" width="30" height="26" rx="1" fill="rgba(100,100,100,0.5)" stroke="rgba(60,60,60,0.5)" stroke-width="1"/>
+  </g>
+
+  <rect x="15" y="10" width="12" height="12" rx="1" fill="#e74c3c"/>
+  <rect x="15" y="24" width="12" height="12" rx="1" fill="#e74c3c" opacity="0.65"/>
+</svg>

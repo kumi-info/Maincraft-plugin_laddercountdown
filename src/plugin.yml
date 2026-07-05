@@ -1,0 +1,15 @@
+name: LadderCountdown
+version: '1.4.0'
+main: com.liverecord.laddercountdown.LadderCountdownPlugin
+api-version: '1.21'
+author: LiveRecord
+description: 's2e-ladder のカウントダウン秒数をコマンドで変更する（s2e-ladder専用）'
+loadbefore: [s2e-ladder]
+commands:
+  laddercount:
+    description: 's2e-ladder のカウントダウン秒数を変更/表示'
+    usage: '/laddercount <秒> | autoreset <on|off|status>'
+permissions:
+  laddercountdown.set:
+    description: 'countdown 変更の権限'
+    default: op
