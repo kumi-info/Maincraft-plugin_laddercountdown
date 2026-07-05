@@ -29,6 +29,7 @@ import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -63,8 +64,27 @@ public final class LadderCountdownPlugin extends JavaPlugin {
         if (resetOnStart) {
             applyDefaultReset();
         }
+        removeNamespacedAlias();
         getLogger().info("LadderCountdown 有効化（s2e-ladder専用）。/laddercount が利用可能。"
                 + "（起動時自動リセット: " + (resetOnStart ? "ON→" + DEFAULT_COUNTDOWN + "秒" : "OFF") + "）");
+    }
+
+    @SuppressWarnings("unchecked")
+    private void removeNamespacedAlias() {
+        try {
+            var commandMap = Bukkit.getServer().getCommandMap();
+            Field f = commandMap.getClass().getDeclaredField("knownCommands");
+            f.setAccessible(true);
+            Map<String, Command> known = (Map<String, Command>) f.get(commandMap);
+            known.remove("laddercountdown:laddercount");
+            try {
+                Method sync = Bukkit.getServer().getClass().getDeclaredMethod("syncCommands");
+                sync.setAccessible(true);
+                sync.invoke(Bukkit.getServer());
+            } catch (Exception ignored) {
+            }
+        } catch (Exception ignore) {
+        }
     }
 
     /** timer.yml の countdown を固定デフォルト(15秒)へ書き戻す。 */
