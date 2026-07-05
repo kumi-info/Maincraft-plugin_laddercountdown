@@ -72,18 +72,34 @@ public final class LadderCountdownPlugin extends JavaPlugin {
     @SuppressWarnings("unchecked")
     private void removeNamespacedAlias() {
         try {
-            var commandMap = Bukkit.getServer().getCommandMap();
-            Field f = commandMap.getClass().getDeclaredField("knownCommands");
+            Object server = Bukkit.getServer();
+            Method getMap = server.getClass().getMethod("getCommandMap");
+            getMap.setAccessible(true);
+            Object commandMap = getMap.invoke(server);
+
+            Field f = null;
+            for (Class<?> c = commandMap.getClass(); c != null; c = c.getSuperclass()) {
+                try { f = c.getDeclaredField("knownCommands"); break; } catch (NoSuchFieldException ignored) {}
+            }
+            if (f == null) {
+                getLogger().warning("[alias] knownCommands フィールドが見つかりません: " + commandMap.getClass().getName());
+                return;
+            }
             f.setAccessible(true);
             Map<String, Command> known = (Map<String, Command>) f.get(commandMap);
-            known.remove("laddercountdown:laddercount");
+            boolean removed = known.remove("laddercountdown:laddercount") != null;
+            getLogger().info("[alias] laddercountdown:laddercount 削除: " + (removed ? "成功" : "キーなし"));
+
             try {
-                Method sync = Bukkit.getServer().getClass().getDeclaredMethod("syncCommands");
+                Method sync = server.getClass().getMethod("syncCommands");
                 sync.setAccessible(true);
-                sync.invoke(Bukkit.getServer());
-            } catch (Exception ignored) {
+                sync.invoke(server);
+                getLogger().info("[alias] syncCommands 完了");
+            } catch (Exception e) {
+                getLogger().warning("[alias] syncCommands 失敗: " + e.getMessage());
             }
-        } catch (Exception ignore) {
+        } catch (Exception e) {
+            getLogger().warning("[alias] 名前空間エイリアス削除失敗: " + e);
         }
     }
 
